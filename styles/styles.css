@@ -40,7 +40,12 @@ html {
 }
 
 .submit-btn {
-  margin-top: 30rem;
-  height: 12rem;
+  margin-top: 10rem;
+  height: 7rem;
+  width: 9.5rem;
+}
+
+.clear-log {
+  padding: 0.5rem;
 }
 /*# sourceMappingURL=styles.css.map */
