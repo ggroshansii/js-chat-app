@@ -1,13 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <!-- minify -->
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <!-- latest -->
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <!-- core style only -->
+    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="styles/styles.css">
     <title>Chat App</title>
 </head>
+
 <body>
+    <div class="container-fluid">
+        <div class="col-12 gameboy">
+            <div class="row logo justify-content-center">
+                <img src="/images/nintendoLogo.png" alt="nintendo logo">
+                <h2>Chat</h2>
+            </div>
+            <div class="row screen justify-content-center">
+                <div class="col-12">
+                    <section class="nes-container">
+                        <div class="message-list">
+                            <div class="message -left">
+                                <!-- username goes here -->
+                                <p>Garth</p>
+                                <div>
+                                    <div class="nes-balloon from-left">
+                                        <!-- TEXT GOES HERE -->
+                                        <p>Hello</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <section class="message -right">
+                                <div class="nes-balloon from-right">
+                                    <!-- TEXT GOES HERE -->
+                                    <p>Hi!!!!</p>
+                                </div>
+                                <p>Carlsen</p>
+                                <!-- username goes here-->
+                            </section>
+                    </section>
+                    </section>
+                </div>
+                </section>
+            </div>
+
+        <div class="row buttons">
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row submit justify-content-center">
+            <div class="col-8 d-flex justify-content-center">
+                <label for="textarea_field"></label>
+                <textarea id="textarea_field" class="nes-textarea" placeholder="Enter Message Here"></textarea>
+                <button>Submit</button>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
     <script src="main.js"></script>
 </body>
+
 </html>
