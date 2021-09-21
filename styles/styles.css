@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 .container-fluid {
   margin-top: 1.5rem;
-  max-width: 700px;
+  max-width: 650px;
 }
 
 html {
@@ -10,38 +10,38 @@ html {
 }
 
 .logo > img {
-  width: 45%;
-  padding-bottom: 1rem;
+  width: 35%;
+  padding-bottom: 0.5rem;
 }
 
 .logo > h2 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .gameboy {
   background-color: #C2C2BF;
-  padding: 1.5rem 5rem 5rem 5rem;
+  padding: 1.5rem 2.5rem 2.5rem 2.5rem;
   border: 6px solid black;
   border-radius: 5%;
 }
 
 .screen {
-  height: 15rem;
+  height: 17rem;
 }
 
 .screen .nes-container {
-  height: 15rem;
+  height: 17rem;
   overflow: scroll;
 }
 
 .message-area {
-  height: 8rem;
+  height: 7.5rem;
   overflow: scroll;
 }
 
 .submit-btn {
   margin-top: 10rem;
-  height: 7rem;
+  height: 6rem;
   width: 9.5rem;
 }
 
