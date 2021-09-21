@@ -3,19 +3,31 @@
 $nintendoFont: 'Press Start 2P', cursive;
 $gameboyColor: #C2C2BF;
 
+.container-fluid {
+    margin-top: 1.5rem;
+    max-width: 700px;
+
+}
+
 html {
     cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABFklEQVRYR9WXURLDIAhE6/0PbSdOtUpcd1Gnpv1KGpTHBpCE1/cXq+vrMph7dGvXZTtpfW10DCA5jrH1H0Jhs5E0hnZdCR+vb5S8Nn8mQCeS9BdSalYJqMBjAGzq59xAESN7VFVUgV8AZB/dZBR7QTFDCqGquvUBVVoEtgIwpQRzmANSFHgWQKExHdIrPeuMvQNDarXe6nC/AutgV3JW+6bgqQLeV8FekRtgV+ToDKEKnACYKsfZjjkam7a0ZpYTytwmgainpC3HvwBocgKOxqRjehoR9DFKNFYtOwCGYCszobeCbl26N6yyQ6g8X/Wex/rBPsNEV6qAMaJPMynIHQCoSqS9JSMmwef51LflTgCRszU7DvAGiV6mHWfsaVUAAAAASUVORK5CYII=),auto;
     font-family: $nintendoFont;
 }
 
 .logo > img {
-    width: 75%;
-    padding-bottom: 3rem;
+    width: 45%;
+    padding-bottom: 1rem;
+}
+
+.logo > h2 {
+    font-size: 1.5rem;
 }
 
 .gameboy {
     background-color: $gameboyColor;
-    padding: 2rem 5rem 5rem 5rem;
+    padding: 1.5rem 5rem 5rem 5rem;
+    border: 6px solid black;
+    border-radius: 5%;
 }
 
 .screen {
@@ -25,4 +37,14 @@ html {
         height: 15rem;
         overflow: scroll;
     }
+}
+
+.message-area {
+    height: 8rem;
+    overflow: scroll;
+}
+
+.submit-btn {
+    margin-top: 30rem;
+    height: 12rem;
 }
