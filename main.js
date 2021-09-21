@@ -1,3 +1,4 @@
+
 "use strict";
 
 
@@ -77,11 +78,10 @@ function postMessage(objData) {
 
 // will retrieve messages from backend when fired
 
-function getMessages() {
+function getMessagesForDisplay() {
     fetch("http://tiny-taco-server.herokuapp.com/test/")
         .then((response) => response.json())
         .then((data) =>  displayMessages(data));
-
 }
 
 
@@ -107,6 +107,28 @@ function displayMessages(arr) {
     }
 }
 
+function getMessagesForDeletion() {
+    fetch("http://tiny-taco-server.herokuapp.com/test/")
+    .then((response) => response.json())
+    .then((data) =>  deleteEntries(data));
+}
+
+function deleteEntries(arr) {
+
+    for (let i = 0; i < arr.length; i++) {
+        fetch(`http://tiny-taco-server.herokuapp.com/test/${arr[i].id}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            console.log(response);
+            if (!response.ok) {
+                throw new Error('Ooops! Something went wrong'); // This is because a 404 does not constitute a network error
+            }
+            console.log('Record was deleted!!')
+        });
+    }
+}
+
 
 
 /////////// DOM MANIPULATION ///////////
@@ -117,20 +139,22 @@ const submitBtn = document.querySelector(".submit-btn");
 const nameArea = document.querySelector(".name-area");
 const messageArea = document.querySelector(".message-area");
 const messageDisplay = document.querySelector(".message-list");
+const clearLogBtn = document.querySelector(".clear-log");
 
 submitBtn.addEventListener("click", (event) => {
     message["name"] = nameArea.value;
     message["text"] = messageArea.value;
 
-    console.log(message);
     postMessage(message);
     setTimeout(() => {
         messageDisplay.innerHTML = "";
-        getMessages();
+        getMessagesForDisplay();
     }, 100)
 
-
+    event.preventDefault;
 });
 
-console.log(message);
-
+clearLogBtn.addEventListener('click', event => {
+    getMessagesForDeletion();
+    event.preventDefault;
+})
