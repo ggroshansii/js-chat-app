@@ -78,14 +78,14 @@ function postMessage(objData) {
 
 // will retrieve messages from backend when fired
 
-function getMessagesForDisplay() {
+function getMessagesToDisplay() {
     fetch("http://tiny-taco-server.herokuapp.com/test/")
         .then((response) => response.json())
-        .then((data) =>  displayMessages(data));
+        .then((data) =>  insertMessages(data));
 }
 
 
-function displayMessages(arr) {
+function insertMessages(arr) {
     let str;
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].id % 2 == 0) {
@@ -148,13 +148,20 @@ submitBtn.addEventListener("click", (event) => {
     postMessage(message);
     setTimeout(() => {
         messageDisplay.innerHTML = "";
-        getMessagesForDisplay();
+        getMessagesToDisplay();
     }, 100)
-
+    nameArea.value = "";
+    messageArea.value = "";
     event.preventDefault;
 });
 
 clearLogBtn.addEventListener('click', event => {
     getMessagesForDeletion();
+    setTimeout(() => {
+        messageDisplay.innerHTML = "";
+        getMessagesToDisplay();
+    }, 500)
+    nameArea.value = "";
+    messageArea.value = "";
     event.preventDefault;
 })
