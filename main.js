@@ -181,6 +181,6 @@ clearLogBtn.addEventListener('click', event => {
 
 
 setInterval(() => {
-    messageDisplay.innerHTML = "";
+
     getMessagesToDisplay();
 }, 4000);
