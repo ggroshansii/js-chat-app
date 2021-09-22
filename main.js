@@ -150,12 +150,9 @@ function createNewExitBtnEvents() {
                     throw new Error('Ooops! Something went wrong'); // This is because a 404 does not constitute a network error
                 }
                 console.log('Record was deleted!!');
-            })
-            setTimeout(() => {
                 messageDisplay.innerHTML = "";
                 getMessagesToDisplay();
-            }, 0)
-
+            })
         }))  
     }, 0);
 
