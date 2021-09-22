@@ -32,14 +32,14 @@ html {
 
 .screen {
     height: 17rem;
-
+    text-align: center;
     .nes-container {
         height: 17rem;
-        overflow: scroll;
+        overflow: auto;
+        display: flex;
+        flex-direction: column-reverse;
     }
 }
-
-
 
 .message-area {
     height: 7.5rem;
@@ -56,6 +56,9 @@ html {
 .submit-btn:hover {
     background-color: rgb(101, 160, 14);
     color:white;
+    &::after {
+        box-shadow: inset -6px -6px  rgb(144, 202, 57);
+    }
 }
 
 .clear-log {
@@ -64,7 +67,11 @@ html {
 
 .clear-log:hover {
     background-color: maroon;
+
     color: white;
+    &::after {
+        box-shadow: inset -6px -6px  rgb(185, 45, 45);
+    }
 }
 
 .nes-balloon:hover {

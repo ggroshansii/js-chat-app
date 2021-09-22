@@ -87,8 +87,7 @@ function getMessagesToDisplay() {
 
 function insertMessages(arr) {
     let str;
-    console.log(typeof arr)
-    console.log(arr[0].created_at.split(".")[0].replace("T", "").replace(":", "").replace("-", "").replace("-", "").replace(":", ""));
+
     arr.sort((elem1, elem2) => {
         return elem1.created_at.split(".")[0].replace("T", "").replace(":", "").replace("-", "").replace("-", "").replace(":", "") - elem2.created_at.split(".")[0].replace("T", "").replace(":", "").replace("-", "").replace("-", "").replace(":", "");
     })
@@ -145,6 +144,8 @@ const nameArea = document.querySelector(".name-area");
 const messageArea = document.querySelector(".message-area");
 const messageDisplay = document.querySelector(".message-list");
 const clearLogBtn = document.querySelector(".clear-log");
+const screen = document.querySelector(".nes-container");
+
 
 submitBtn.addEventListener("click", (event) => {
     message["name"] = nameArea.value;
@@ -154,19 +155,29 @@ submitBtn.addEventListener("click", (event) => {
     setTimeout(() => {
         messageDisplay.innerHTML = "";
         getMessagesToDisplay();
-    }, 300)
+        screen.scrollTop = screen.scrollHeight - screen.clientHeight;
+    }, 500)
     nameArea.value = "";
     messageArea.value = "";
     event.preventDefault;
 });
 
 clearLogBtn.addEventListener('click', event => {
+    messageDisplay.style.color = 'red';
+    messageDisplay.innerHTML = "DELETING MESSAGES";
     getMessagesForDeletion();
+    clearLogBtn.classList.add('is-warning');
     setTimeout(() => {
         messageDisplay.innerHTML = "";
+        messageDisplay.style.color = 'white';
         getMessagesToDisplay();
-    }, 500)
+        clearLogBtn.classList.remove('is-warning');
+    }, 3000)
+    clearBtnProcessing();
     nameArea.value = "";
     messageArea.value = "";
     event.preventDefault;
 })
+
+
+
