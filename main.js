@@ -58,7 +58,7 @@ function insertMessages(arr) {
         messageDisplay.insertAdjacentHTML('beforeend', str)
 
     }
-   // createNewExitBtnEvents();
+   createNewExitBtnEvents();
 }
 
 function getMessagesForDeletion() {
@@ -136,17 +136,20 @@ function createNewExitBtnEvents() {
         exitBtns = document.querySelectorAll(".exit-message");
         exitBtns.forEach(btn => btn.addEventListener('click', event => {
 
-            // console.log(event.target);
-            // fetch(`https://tiny-taco-server.herokuapp.com/test/${event.target.id}`, {
-            //     method: 'DELETE',
-            // })
-            // .then(response => {
-            //     console.log(response);
-            //     if (!response.ok) {
-            //         throw new Error('Ooops! Something went wrong'); // This is because a 404 does not constitute a network error
-            //     }
-            //     console.log('Record was deleted!!');
-            // })
+            console.log(event.target);
+            fetch(`https://tiny-taco-server.herokuapp.com/test/${event.target.id}`, {
+                method: 'DELETE',
+            })
+            .then(response => {
+                console.log(response);
+                if (!response.ok) {
+                    throw new Error('Ooops! Something went wrong'); // This is because a 404 does not constitute a network error
+                }
+                console.log('Record was deleted!!');
+            })
+            setTimeout(() => {
+                getMessagesToDisplay();
+            }, 500)
 
         }))  
     }, 0);
