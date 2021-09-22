@@ -57,7 +57,7 @@
 ///// will post the 'message' object (objData param) when fired
 
 function postMessage(objData) {
-    fetch("http://tiny-taco-server.herokuapp.com/test/", {
+    fetch("https://tiny-taco-server.herokuapp.com/test/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -79,7 +79,7 @@ function postMessage(objData) {
 // will retrieve messages from backend when fired
 
 function getMessagesToDisplay() {
-    fetch("http://tiny-taco-server.herokuapp.com/test/")
+    fetch("https://tiny-taco-server.herokuapp.com/test/")
         .then((response) => response.json())
         .then((data) =>  insertMessages(data));
 }
@@ -112,7 +112,7 @@ function insertMessages(arr) {
 }
 
 function getMessagesForDeletion() {
-    fetch("http://tiny-taco-server.herokuapp.com/test/")
+    fetch("https://tiny-taco-server.herokuapp.com/test/")
     .then((response) => response.json())
     .then((data) =>  deleteEntries(data));
 }
@@ -120,7 +120,7 @@ function getMessagesForDeletion() {
 function deleteEntries(arr) {
 
     for (let i = 0; i < arr.length; i++) {
-        fetch(`http://tiny-taco-server.herokuapp.com/test/${arr[i].id}`, {
+        fetch(`https://tiny-taco-server.herokuapp.com/test/${arr[i].id}`, {
             method: 'DELETE',
         })
         .then(response => {
