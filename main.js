@@ -155,7 +155,6 @@ submitBtn.addEventListener("click", (event) => {
     setTimeout(() => {
         messageDisplay.innerHTML = "";
         getMessagesToDisplay();
-        screen.scrollTop = screen.scrollHeight - screen.clientHeight;
     }, 500)
     nameArea.value = "";
     messageArea.value = "";
@@ -181,3 +180,7 @@ clearLogBtn.addEventListener('click', event => {
 
 
 
+setInterval(() => {
+    messageDisplay.innerHTML = "";
+    getMessagesToDisplay();
+}, 200);
