@@ -131,6 +131,10 @@ clearLogBtn.addEventListener('click', event => {
     event.preventDefault;
 })
 
+window.addEventListener('load', (event) => {
+    getMessagesForDeletion();
+  });
+
 function createNewExitBtnEvents() {
     setTimeout(() => {
         exitBtns = document.querySelectorAll(".exit-message");
