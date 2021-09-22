@@ -43,22 +43,22 @@ function insertMessages(arr) {
         if (arr[i].id % 2 == 0) {
             str = `<section class="message -right">
             <div class="nes-balloon from-right is-dark">
-            <div class="exit-message">X</div>
+            <div class="exit-message" id="${arr[i].id}">X</div>
               <p>${arr[i].name}: ${arr[i].text}.</p>
             </div>
           </section>`
         } else {
             str = `<section class="message -left">
-            <div class="nes-balloon from-left is-dark">
-            <div class="exit-message">X</div>
+            <div class="nes-balloon from-left is-dark" >
+            <div class="exit-message" id="${arr[i].id}">X</div>
               <p>${arr[i].name}: ${arr[i].text}.</p>
             </div>
           </section>`
         }
-        
         messageDisplay.insertAdjacentHTML('beforeend', str)
 
     }
+   // createNewExitBtnEvents();
 }
 
 function getMessagesForDeletion() {
@@ -85,6 +85,8 @@ function deleteEntries(arr) {
 
 
 
+
+
 /////////// DOM MANIPULATION ///////////
 
 const message = {};
@@ -95,7 +97,8 @@ const messageArea = document.querySelector(".message-area");
 const messageDisplay = document.querySelector(".message-list");
 const clearLogBtn = document.querySelector(".clear-log");
 const screen = document.querySelector(".nes-container");
-const exitBtn = document.querySelector(".exit-message");
+let exitBtns;
+
 
 submitBtn.addEventListener("click", (event) => {
     message["name"] = nameArea.value;
@@ -128,10 +131,31 @@ clearLogBtn.addEventListener('click', event => {
     event.preventDefault;
 })
 
+function createNewExitBtnEvents() {
+    setTimeout(() => {
+        exitBtns = document.querySelectorAll(".exit-message");
+        exitBtns.forEach(btn => btn.addEventListener('click', event => {
+
+            // console.log(event.target);
+            // fetch(`https://tiny-taco-server.herokuapp.com/test/${event.target.id}`, {
+            //     method: 'DELETE',
+            // })
+            // .then(response => {
+            //     console.log(response);
+            //     if (!response.ok) {
+            //         throw new Error('Ooops! Something went wrong'); // This is because a 404 does not constitute a network error
+            //     }
+            //     console.log('Record was deleted!!');
+            // })
+
+        }))  
+    }, 0);
+
+}
 
 
-setInterval(() => {
-    console.log(messageDisplay);
-    messageDisplay.innerHTML = "";
-    getMessagesToDisplay();
-}, 4000);
+// setInterval(() => {
+//     console.log(messageDisplay);
+//     messageDisplay.innerHTML = "";
+//     getMessagesToDisplay();
+// }, 4000);
