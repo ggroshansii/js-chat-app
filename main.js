@@ -2,58 +2,6 @@
 "use strict";
 
 
-
-
-// fetch('http://tiny-taco-server.herokuapp.com/nintendo/', {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(todo),
-// })
-
-// .then(response => {
-//     console.log(response.ok)
-//     if (!response.ok) {
-//         throw new Error('Ooops! Something went wrong', response.status); // This is because a 404 does not constitute a network error
-//     }
-//     return response.json()
-// })
-// .then(data => console.log(data))
-// .catch(error => console.log(error))
-// .finally(() => console.log('API\'s are awesome!'));
-// a successful post response gives you back the item you just added to the database
-
-//////////////// DELETE REQUEST ////////////////////
-
-//When you delete from a database, it needs to know the exact record -- ID
-
-// fetch('http://tiny-taco-server.herokuapp.com/cohort10/1', {
-//     method: 'DELETE',
-// })
-// .then(response => {
-//     console.log(response);
-//     if (!response.ok) {
-//         throw new Error('Ooops! Something went wrong'); // This is because a 404 does not constitute a network error
-//     }
-//     console.log('Record was deleted!!')
-// })
-
-/////////////////// PUT REQUEST /////////////////////
-
-// fetch( 'http://tiny-taco-server.herokuapp.com/cohort10/17', {
-//     method: 'PUT',
-//     headers: {
-//         'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(todo),
-// })
-// .then(response => response.json())
-// .then(data => console.log(data))
-
-
-
-
 ///// will post the 'message' object (objData param) when fired
 
 function postMessage(objData) {
@@ -181,6 +129,7 @@ clearLogBtn.addEventListener('click', event => {
 
 
 setInterval(() => {
+    console.log(messageDisplay)
     messageDisplay.innerHTML = "";
     getMessagesToDisplay();
 }, 4000);
