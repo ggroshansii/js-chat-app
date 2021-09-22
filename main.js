@@ -88,7 +88,10 @@ function getMessagesToDisplay() {
 function insertMessages(arr) {
     let str;
     console.log(typeof arr)
-    console.log(arr[0].created_at.split(".")[0].replace("T", "").replace(":", "").replace("-", ""));
+    console.log(arr[0].created_at.split(".")[0].replace("T", "").replace(":", "").replace("-", "").replace("-", "").replace(":", ""));
+    arr.sort((elem1, elem2) => {
+        return elem1.created_at.split(".")[0].replace("T", "").replace(":", "").replace("-", "").replace("-", "").replace(":", "") - elem2.created_at.split(".")[0].replace("T", "").replace(":", "").replace("-", "").replace("-", "").replace(":", "");
+    })
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].id % 2 == 0) {
             str = `<section class="message -right">
