@@ -148,8 +148,9 @@ function createNewExitBtnEvents() {
                 console.log('Record was deleted!!');
             })
             setTimeout(() => {
+                messageDisplay.innerHTML = "";
                 getMessagesToDisplay();
-            }, 500)
+            }, 0)
 
         }))  
     }, 0);
@@ -157,8 +158,8 @@ function createNewExitBtnEvents() {
 }
 
 
-// setInterval(() => {
-//     console.log(messageDisplay);
-//     messageDisplay.innerHTML = "";
-//     getMessagesToDisplay();
-// }, 4000);
+setInterval(() => {
+    console.log(messageDisplay);
+    messageDisplay.innerHTML = "";
+    getMessagesToDisplay();
+}, 4000);
