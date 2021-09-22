@@ -35,7 +35,7 @@ html {
     text-align: center;
     .nes-container {
         height: 17rem;
-        overflow: auto;
+        overflow: scroll;
         display: flex;
         flex-direction: column-reverse;
     }

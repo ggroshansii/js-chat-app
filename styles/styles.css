@@ -32,7 +32,7 @@ html {
 
 .screen .nes-container {
   height: 17rem;
-  overflow: auto;
+  overflow: scroll;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
