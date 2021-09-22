@@ -46,12 +46,25 @@ html {
 
 .submit-btn {
     margin-top: 10rem;
-    height: 6rem;
-    width: 9.5rem;
+    height: 6.5rem;
+    width: 10rem;
+}
 
+.submit-btn:hover {
+    background-color: rgb(101, 160, 14);
+    color:white;
 }
 
 .clear-log {
     padding: 0.5rem;
 }
 
+.clear-log:hover {
+    background-color: maroon;
+    color: white;
+}
+
+.nes-balloon:hover {
+    background-color:white;
+    color:black;
+}
