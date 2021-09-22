@@ -78,3 +78,10 @@ html {
     background-color:white;
     color:black;
 }
+
+.exit-message {
+    text-align: right;
+    &:hover {
+        color: red;
+    }
+}

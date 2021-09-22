@@ -81,4 +81,12 @@ html {
   background-color: white;
   color: black;
 }
+
+.exit-message {
+  text-align: right;
+}
+
+.exit-message:hover {
+  color: red;
+}
 /*# sourceMappingURL=styles.css.map */

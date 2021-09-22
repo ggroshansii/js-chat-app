@@ -43,17 +43,19 @@ function insertMessages(arr) {
         if (arr[i].id % 2 == 0) {
             str = `<section class="message -right">
             <div class="nes-balloon from-right is-dark">
+            <div class="exit-message">X</div>
               <p>${arr[i].name}: ${arr[i].text}.</p>
             </div>
           </section>`
         } else {
             str = `<section class="message -left">
             <div class="nes-balloon from-left is-dark">
+            <div class="exit-message">X</div>
               <p>${arr[i].name}: ${arr[i].text}.</p>
             </div>
           </section>`
         }
-
+        
         messageDisplay.insertAdjacentHTML('beforeend', str)
 
     }
@@ -93,7 +95,7 @@ const messageArea = document.querySelector(".message-area");
 const messageDisplay = document.querySelector(".message-list");
 const clearLogBtn = document.querySelector(".clear-log");
 const screen = document.querySelector(".nes-container");
-
+const exitBtn = document.querySelector(".exit-message");
 
 submitBtn.addEventListener("click", (event) => {
     message["name"] = nameArea.value;
@@ -129,7 +131,7 @@ clearLogBtn.addEventListener('click', event => {
 
 
 setInterval(() => {
-    console.log(messageDisplay)
+    console.log(messageDisplay);
     messageDisplay.innerHTML = "";
     getMessagesToDisplay();
 }, 4000);
