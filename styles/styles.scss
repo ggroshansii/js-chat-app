@@ -79,9 +79,14 @@ html {
     color:black;
 }
 
-.exit-message {
-    text-align: right;
-    &:hover {
-        color: red;
-    }
+.icon-div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.edit-message {
+    margin-right: 0.5rem;
+    position: relative;
+    bottom: 5px;
 }

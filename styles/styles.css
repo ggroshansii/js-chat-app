@@ -82,11 +82,18 @@ html {
   color: black;
 }
 
-.exit-message {
-  text-align: right;
+.icon-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
-.exit-message:hover {
-  color: red;
+.edit-message {
+  margin-right: 0.5rem;
+  position: relative;
+  bottom: 5px;
 }
 /*# sourceMappingURL=styles.css.map */

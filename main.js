@@ -43,18 +43,20 @@ function insertMessages(arr) {
         if (arr[i].id % 2 == 0) {
             str = `<section class="message -right">
             <div class="nes-balloon from-right is-dark">
-            
+            <div class="icon-div">
             <div class="edit-message" id="${arr[i].id}"><i class="far fa-edit"></i></div>
             <div class="exit-message" id="${arr[i].id}">X</div>
+            </div>
               <p>${arr[i].name}: ${arr[i].text}.</p>
             </div>
           </section>`
         } else {
             str = `<section class="message -left">
             <div class="nes-balloon from-left is-dark" >
-
+            <div class="icon-div">
             <div class="edit-message" id="${arr[i].id}"><i class="far fa-edit"></i></div>
             <div class="exit-message" id="${arr[i].id}">X</div>
+            </div>
               <p>${arr[i].name}: ${arr[i].text}.</p>
             </div>
           </section>`
