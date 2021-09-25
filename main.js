@@ -221,4 +221,4 @@ function createNewEditBtnEvents() {
 setInterval(() => {
     console.log(messageDisplay);
     getMessagesToDisplay();
-}, 100);
+}, 500);
