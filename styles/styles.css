@@ -58,6 +58,19 @@ html {
   margin-top: 10rem;
   height: 6.5rem;
   width: 10rem;
+  background-color: goldenrod;
+}
+
+.submit-edit-btn::after {
+  -webkit-box-shadow: inset -6px -6px #facb55;
+          box-shadow: inset -6px -6px #facb55;
+}
+
+.submit-edit-btn:hover {
+  background-color: #65a00e;
+  color: white;
+  -webkit-box-shadow: inset -6px -6px #90ca39;
+          box-shadow: inset -6px -6px #90ca39;
 }
 
 .submit-btn:hover {

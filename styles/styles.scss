@@ -58,6 +58,16 @@ html {
     margin-top: 10rem;
     height: 6.5rem;
     width: 10rem;
+    background-color: goldenrod;
+    &::after {
+        box-shadow: inset -6px -6px  rgb(250, 203, 85);
+    }
+    &:hover {
+        background-color: rgb(101, 160, 14);
+        color:white;
+        box-shadow: inset -6px -6px  rgb(144, 202, 57);
+    }
+
 }
 
 .submit-btn:hover {
