@@ -145,13 +145,10 @@ window.addEventListener('load', (event) => {
   });
 
 function createNewExitBtnEvents() {
-    setTimeout(() => {
+
         exitBtns = document.querySelectorAll(".exit-message");
         exitBtns.forEach(btn => btn.addEventListener('click', event => {
 
-            console.log('target',event.target);
-            console.log('curr target',event.currentTarget);
-            console.log('event',event);
 
             fetch(`https://tiny-taco-server.herokuapp.com/test/${event.currentTarget.id}`, {
                 method: 'DELETE',
@@ -166,23 +163,23 @@ function createNewExitBtnEvents() {
                 getMessagesToDisplay();
             })
         }))  
-    }, 0);
-
 }
 
 function createNewEditBtnEvents() {
-    setTimeout(() => {
+
         editBtns = document.querySelectorAll(".edit-message");
         editBtns.forEach(btn => btn.addEventListener('click', event => {
+            submitBtn.style.display = 'none';
+            submitEditBtn.style.display = 'block';
 
-            let currentTargetID = event.currentTarget.id;
-
+            let messageTarget = event.currentTarget.id;
+            console.log(event.currentTarget.id);
             fetch(`https://tiny-taco-server.herokuapp.com/test/${event.currentTarget.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({name:'', text: 'Submit new message edit below'}),
+                body: JSON.stringify({name:'EDIT', text: 'Submit new message edit below'}),
             })
             .then(response => {
                 console.log(response);
@@ -191,39 +188,41 @@ function createNewEditBtnEvents() {
                 getMessagesToDisplay();
             })
 
-            submitBtn.addEventListener("click", (event) => {
+            submitEditBtn.addEventListener("click", (event) => {
                 message["name"] = nameArea.value;
                 message["text"] = messageArea.value;
                 
-                fetch(`https://tiny-taco-server.herokuapp.com/test/${currentTargetID}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(message),
-                })
-                .then(response => {
-                    console.log(response);
-                    console.log('Record was updated!!');
-                    messageDisplay.innerHTML = "";
-                    getMessagesToDisplay();
-                })
+
+                    fetch(`https://tiny-taco-server.herokuapp.com/test/${messageTarget}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(message),
+                    })
+                    .then(response => {
+                        console.log(response);
+                        console.log('Record was updated!!');
+                        messageDisplay.innerHTML = "";
+                        getMessagesToDisplay();
+                    })
 
                 setTimeout(() => {
-                    messageDisplay.innerHTML = "";
-                    getMessagesToDisplay();
-                }, 500)
-                nameArea.value = "";
-                messageArea.value = "";
-                event.preventDefault;
+                    nameArea.value = "";
+                    messageArea.value = "";
+                    submitBtn.style.display = 'block';
+                    submitEditBtn.style.display = 'none';
+                    event.preventDefault;
+                }, 0)
+
+
             });
         }))  
-    }, 0);
 }
 
 
-// setInterval(() => {
-//     console.log(messageDisplay);
-//     messageDisplay.innerHTML = "";
-//     getMessagesToDisplay();
-// }, 4000);
+setInterval(() => {
+    console.log(messageDisplay);
+    messageDisplay.innerHTML = "";
+    getMessagesToDisplay();
+}, 5000);
