@@ -38,7 +38,7 @@ function insertMessages(arr) {
     let str;
 
     arr.sort((elem1, elem2) => {
-        return elem1.created_at - elem2.created_at;
+        return elem1.created_at.split(".")[0].replace("T", "").replace(":", "").replace("-", "").replace("-", "").replace(":", "") - elem2.created_at.split(".")[0].replace("T", "").replace(":", "").replace("-", "").replace("-", "").replace(":", "");
     })
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].id % 2 == 0) {
@@ -172,12 +172,13 @@ function createNewEditBtnEvents() {
 
             let messageTarget = event.currentTarget.id;
             console.log(event.currentTarget.id);
+            
             fetch(`https://tiny-taco-server.herokuapp.com/test/${event.currentTarget.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({name:'EDIT', text: 'Submit new message edit below'}),
+                body: JSON.stringify({name:'EDIT', text: 'This message is being edited'}),
             })
             .then(response => {
                 console.log(response);
@@ -220,4 +221,4 @@ function createNewEditBtnEvents() {
 setInterval(() => {
     console.log(messageDisplay);
     getMessagesToDisplay();
-}, 5000);
+}, 100);
