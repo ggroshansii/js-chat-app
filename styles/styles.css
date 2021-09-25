@@ -124,4 +124,32 @@ html {
 .edit-message i:hover {
   color: goldenrod;
 }
+
+@media screen and (max-width: 400px) {
+  .container-fluid {
+    margin-top: 0.5rem;
+  }
+  .gameboy {
+    padding: 1rem 1.5rem 2rem 1.5rem;
+  }
+  .clear-log {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    height: 5.75rem;
+  }
+  .submit-btn {
+    height: 4rem;
+    font-size: 0.75rem;
+    width: 6rem;
+  }
+  .submit-edit-btn {
+    display: none;
+    font-size: 0.75rem;
+    height: 4rem;
+    width: 6rem;
+  }
+  .message-area, .name-area {
+    font-size: 0.75rem;
+  }
+}
 /*# sourceMappingURL=styles.css.map */
