@@ -65,6 +65,7 @@ function insertMessages(arr) {
 
     }
    createNewExitBtnEvents();
+   createNewEditBtnEvents();
 }
 
 function getMessagesForDeletion() {
@@ -104,6 +105,7 @@ const messageDisplay = document.querySelector(".message-list");
 const clearLogBtn = document.querySelector(".clear-log");
 const screen = document.querySelector(".nes-container");
 let exitBtns;
+let editBtns; 
 
 
 submitBtn.addEventListener("click", (event) => {
@@ -146,8 +148,11 @@ function createNewExitBtnEvents() {
         exitBtns = document.querySelectorAll(".exit-message");
         exitBtns.forEach(btn => btn.addEventListener('click', event => {
 
-            console.log(event.target);
-            fetch(`https://tiny-taco-server.herokuapp.com/test/${event.target.id}`, {
+            console.log('target',event.target);
+            console.log('curr target',event.currentTarget);
+            console.log('event',event);
+
+            fetch(`https://tiny-taco-server.herokuapp.com/test/${event.currentTarget.id}`, {
                 method: 'DELETE',
             })
             .then(response => {
@@ -164,9 +169,35 @@ function createNewExitBtnEvents() {
 
 }
 
+function createNewEditBtnEvents() {
+    setTimeout(() => {
+        editBtns = document.querySelectorAll(".edit-message");
+        editBtns.forEach(btn => btn.addEventListener('click', event => {
 
-setInterval(() => {
-    console.log(messageDisplay);
-    messageDisplay.innerHTML = "";
-    getMessagesToDisplay();
-}, 4000);
+            console.log('target',event.target);
+            console.log('curr target',event.currentTarget);
+            console.log('event',event);
+
+            fetch(`https://tiny-taco-server.herokuapp.com/test/${event.target.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({name:'Garth', messsage: "Hello"}),
+            })
+            .then(response => {
+                console.log(response);
+                console.log('Record was updated!!');
+                messageDisplay.innerHTML = "";
+                getMessagesToDisplay();
+            })
+        }))  
+    }, 0);
+}
+
+
+// setInterval(() => {
+//     console.log(messageDisplay);
+//     messageDisplay.innerHTML = "";
+//     getMessagesToDisplay();
+// }, 4000);
