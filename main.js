@@ -34,10 +34,11 @@ function getMessagesToDisplay() {
 
 
 function insertMessages(arr) {
+    messageDisplay.innerHTML = "";
     let str;
 
     arr.sort((elem1, elem2) => {
-        return elem1.created_at.split(".")[0].replace("T", "").replace(":", "").replace("-", "").replace("-", "").replace(":", "") - elem2.created_at.split(".")[0].replace("T", "").replace(":", "").replace("-", "").replace("-", "").replace(":", "");
+        return elem1.created_at - elem2.created_at;
     })
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].id % 2 == 0) {
@@ -115,7 +116,6 @@ submitBtn.addEventListener("click", (event) => {
 
     postMessage(message);
     setTimeout(() => {
-        messageDisplay.innerHTML = "";
         getMessagesToDisplay();
     }, 500)
     nameArea.value = "";
@@ -129,7 +129,6 @@ clearLogBtn.addEventListener('click', event => {
     getMessagesForDeletion();
     clearLogBtn.classList.add('is-warning');
     setTimeout(() => {
-        messageDisplay.innerHTML = "";
         messageDisplay.style.color = 'white';
         getMessagesToDisplay();
         clearLogBtn.classList.remove('is-warning');
@@ -159,7 +158,6 @@ function createNewExitBtnEvents() {
                     throw new Error('Ooops! Something went wrong'); // This is because a 404 does not constitute a network error
                 }
                 console.log('Record was deleted!!');
-                messageDisplay.innerHTML = "";
                 getMessagesToDisplay();
             })
         }))  
@@ -184,7 +182,6 @@ function createNewEditBtnEvents() {
             .then(response => {
                 console.log(response);
                 console.log('Record was updated!!');
-                messageDisplay.innerHTML = "";
                 getMessagesToDisplay();
             })
 
@@ -203,7 +200,6 @@ function createNewEditBtnEvents() {
                     .then(response => {
                         console.log(response);
                         console.log('Record was updated!!');
-                        messageDisplay.innerHTML = "";
                         getMessagesToDisplay();
                     })
 
@@ -223,6 +219,5 @@ function createNewEditBtnEvents() {
 
 setInterval(() => {
     console.log(messageDisplay);
-    messageDisplay.innerHTML = "";
     getMessagesToDisplay();
 }, 5000);
