@@ -98,6 +98,7 @@ function deleteEntries(arr) {
 
 const message = {};
 
+const submitEditBtn = document.querySelector(".submit-edit-btn");
 const submitBtn = document.querySelector(".submit-btn");
 const nameArea = document.querySelector(".name-area");
 const messageArea = document.querySelector(".message-area");
@@ -174,16 +175,14 @@ function createNewEditBtnEvents() {
         editBtns = document.querySelectorAll(".edit-message");
         editBtns.forEach(btn => btn.addEventListener('click', event => {
 
-            console.log('target',event.target);
-            console.log('curr target',event.currentTarget);
-            console.log('event',event);
+            let currentTargetID = event.currentTarget.id;
 
-            fetch(`https://tiny-taco-server.herokuapp.com/test/${event.target.id}`, {
+            fetch(`https://tiny-taco-server.herokuapp.com/test/${event.currentTarget.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({name:'Garth', messsage: "Hello"}),
+                body: JSON.stringify({name:'', text: 'Submit new message edit below'}),
             })
             .then(response => {
                 console.log(response);
@@ -191,6 +190,33 @@ function createNewEditBtnEvents() {
                 messageDisplay.innerHTML = "";
                 getMessagesToDisplay();
             })
+
+            submitBtn.addEventListener("click", (event) => {
+                message["name"] = nameArea.value;
+                message["text"] = messageArea.value;
+                
+                fetch(`https://tiny-taco-server.herokuapp.com/test/${currentTargetID}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(message),
+                })
+                .then(response => {
+                    console.log(response);
+                    console.log('Record was updated!!');
+                    messageDisplay.innerHTML = "";
+                    getMessagesToDisplay();
+                })
+
+                setTimeout(() => {
+                    messageDisplay.innerHTML = "";
+                    getMessagesToDisplay();
+                }, 500)
+                nameArea.value = "";
+                messageArea.value = "";
+                event.preventDefault;
+            });
         }))  
     }, 0);
 }

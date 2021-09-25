@@ -53,6 +53,13 @@ html {
   width: 10rem;
 }
 
+.submit-edit-btn {
+  display: none;
+  margin-top: 10rem;
+  height: 6.5rem;
+  width: 10rem;
+}
+
 .submit-btn:hover {
   background-color: #65a00e;
   color: white;
@@ -91,9 +98,17 @@ html {
           justify-content: flex-end;
 }
 
+.exit-message:hover {
+  color: #bb0303;
+}
+
 .edit-message {
-  margin-right: 0.5rem;
+  margin-right: 0.75rem;
   position: relative;
   bottom: 5px;
+}
+
+.edit-message i:hover {
+  color: goldenrod;
 }
 /*# sourceMappingURL=styles.css.map */
